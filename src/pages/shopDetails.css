@@ -49,3 +49,28 @@
 .ant-drawer-bottom .ant-drawer-mask {
     transition: none !important;
 }
+
+.image-slider {
+    width: 80%;
+    margin: auto;
+  }
+  
+  .image-slider img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .slick-list{
+    height: 335px;
+  }
+
+  .slick-dots{
+    position: absolute !important;
+    bottom: 35px !important;
+  }
+
+  .slick-dots li button:before{
+    color: white !important;
+    font-size: 12px !important;
+  }

@@ -9,6 +9,8 @@ import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ShopDetails from './pages/ShopDetails';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const App = () => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);

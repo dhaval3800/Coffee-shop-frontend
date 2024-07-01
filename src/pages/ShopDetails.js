@@ -8,6 +8,8 @@ import { useParams } from 'react-router-dom';
 import ProductCard from '../components/Product/ProductCard';
 import './shopDetails.css'
 import { Drawer } from 'antd';
+import Slider from "react-slick";
+
 
 const ShopDetails = () => {
     const { id } = useParams();
@@ -30,16 +32,28 @@ const ShopDetails = () => {
     if (error.status) {
         return <div>Error: {error.message}</div>;
     }
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+    };
 
     return (
         <>
-            <div>
-                <div>3.3 miles</div>
-                <div>3.3 miles</div>
-                <div>3.3 miles</div>
-
+            <div style={{position:'relative'}}>
+                <Slider {...settings}>
+                    {shopDetails?.images.map((image, index) => (
+                        <div key={index}>
+                            <img src={image} alt={`Slide ${index + 1}`} />
+                        </div>
+                    ))}
+                </Slider>
             </div>
-            <Drawer open={true} height={'75vh'} placement='bottom' >
+            <div height={'55vh'} placement='bottom' >
                 <div class='shop-details-container' style={{ padding: '0px 28px' }}>
                     <div style={{ padding: '24px' }}>
                         <div className="shop-details">
@@ -79,7 +93,7 @@ const ShopDetails = () => {
                         }
                     </div>
                 </div>
-            </Drawer>
+            </div>
         </>
     );
 };
