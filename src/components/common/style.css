@@ -1,0 +1,22 @@
+.anticon {
+    color: grey;
+    font-size: 24px;
+}
+.nav-icon-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    padding: 12px 0px 43.5px
+}
+
+.nav-icon.active{
+    background-color: #003B40;
+    padding: 18px 22px;
+    border-radius: 27px;
+}

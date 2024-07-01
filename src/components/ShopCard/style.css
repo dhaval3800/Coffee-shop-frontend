@@ -1,0 +1,25 @@
+
+.shop-card {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding-top: 11px;
+}
+
+.shop-card img {
+  /* width: 100%; */
+  object-fit: cover;
+  border-radius: 20px; /* Ensures image fills the container */
+}
+
+.shop-details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.shop-details h3 {
+  margin-bottom: 5px;
+}

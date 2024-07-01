@@ -1,0 +1,51 @@
+.product-icon-container div{
+    display: flex;
+    flex-direction: column;
+}
+
+.product-icon-container div span{
+    padding-bottom: 10px;
+    justify-content: center;
+}
+
+.product-icon-container div{
+   font-weight: 600;
+   color: #B7C1C2;
+}
+
+.product-icon-container div.active {
+    background-color: #EDF0EF;
+    border-radius: 27px;
+    color: #003B40 !important;
+}
+
+.product-icon-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 17px;
+}
+
+.ant-drawer-header {
+    display: none !important;
+}
+
+.ant-drawer-body {
+    padding: 0px!important;
+}
+
+
+/* Disable the Ant Design Drawer animation */
+.ant-drawer-bottom.ant-drawer-open {
+    transition: none !important;
+}
+
+.ant-drawer-bottom .ant-drawer-content-wrapper {
+    transition: none !important;
+    border-top-left-radius: 56px !important; /* Adjust the radius as needed */
+    border-top-right-radius: 56px !important;  
+    overflow: hidden;
+}
+
+.ant-drawer-bottom .ant-drawer-mask {
+    transition: none !important;
+}

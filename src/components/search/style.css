@@ -1,0 +1,20 @@
+@import "~@flaticon/flaticon-uicons/css/all/all";
+
+.ant-input-outlined {
+    border: none;
+    background-color: #EDF0EF;
+    border-radius: 20 px;
+    min-height: 56px; /* Adjust input height for better appearance */
+    padding: 16px 13px 16px 13px;
+    font-size: 16px; /* Set a comfortable font size for inputs */
+  }
+
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#003B40;
+  padding: 19px;
+  border-radius: 20px;
+}

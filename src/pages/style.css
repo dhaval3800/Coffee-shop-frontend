@@ -1,0 +1,77 @@
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  padding: 20px; /* Add some padding for better spacing */
+}
+
+.signup-form {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  padding: 40px; /* Match padding in signup-container */
+}
+
+.signup-form h1 {
+  /* Removed - replaced with Typography.Title */
+}
+
+.signup-form .ant-form-item {
+  margin-bottom: 20px;
+}
+
+.signup-form .ant-form-item-label > label {
+  font-weight: bold;
+  color: #333;
+}
+
+.signup-form .ant-input {
+  border-color: #4facfe;
+  border-radius: 4px;
+  height: 40px; /* Adjust input height for better appearance */
+  padding: 10px; /* Add some padding for better readability */
+  font-size: 16px; /* Set a comfortable font size for inputs */
+}
+
+.signup-form .ant-input:focus {
+  box-shadow: 0 0 0 2px rgba(79, 172, 254, 0.2);
+}
+
+.signup-form .ant-btn-primary {
+  background-color: #4facfe;
+  border-color: #4facfe;
+  border-radius: 4px;
+  font-weight: bold;
+  width: 100%;
+  height: 40px; /* Adjust button height to match inputs */
+  margin-top: 20px; /* Add some spacing after inputs */
+  cursor: pointer; /* Indicate clickable behavior */
+  transition: background-color 0.2s ease-in-out; /* Add smooth color transition on hover */
+}
+
+.signup-form .ant-btn-primary:hover,
+.signup-form .ant-btn-primary:focus {
+  background-color: #00f2fe;
+  border-color: #00f2fe;
+}
+
+/* Style the login link */
+.signup-form .ant-form-item-control .ant-form-item-explain {
+  text-align: center; /* Center the login link text */
+  margin-top: 10px; /* Add some spacing above the link */
+}
+
+.signup-form .ant-form-item-control .ant-form-item-explain a {
+  color: #4facfe; /* Set a contrasting color for the link */
+  font-weight: bold; /* Make the link stand out */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.2s ease-in-out; /* Add smooth color transition on hover */
+}
+
+.signup-form .ant-form-item-control .ant-form-item-explain a:hover {
+  color: #00f2fe; /* Change link color on hover */
+}

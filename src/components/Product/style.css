@@ -1,0 +1,27 @@
+.product-card {
+    background-color: #EDF0EF;
+    border-radius: 20px;
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.product-content{
+    display: flex;
+    padding: 18px 30px 18px 22px;
+}
+
+.product-img{
+    width: auto;
+    height: 105px;
+    border-radius: 17px;
+}
+
+.product-add-btn{
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    background-color: #003B40;
+    border-radius: 50%;
+    border:3px solid white;
+    padding: 6px;
+}
