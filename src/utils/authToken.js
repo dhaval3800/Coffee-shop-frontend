@@ -1,4 +1,4 @@
   
-  export const getStoredAuthToken = () => localStorage.getItem('authorization')
-  export const removeStoredAuthToken = () => localStorage.removeItem('authorization');
+  export const getStoredAuthToken = () => localStorage.getItem('token')
+  export const removeStoredAuthToken = () => localStorage.removeItem('token');
   

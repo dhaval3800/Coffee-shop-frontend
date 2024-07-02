@@ -10,7 +10,7 @@ const Wishlist = () => {
 
   const likedShops = useMemo(() => {
     return shopList.filter(shop => shop.isLiked);
-  }, [shopList]); // Memoize when shopList changes
+  }, [shopList]); 
 
   return (
     <div style={{ margin: '20px' }}>

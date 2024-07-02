@@ -1,24 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Input, Button, Typography } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import './login.css';
-import { useDispatch } from 'react-redux';
-import { login } from '../redux/features/auth/authSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser } from '../redux/features/auth/authThunk';
+import { selectAuth,  } from '../redux/features/auth/authSlice';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const {loading, isLoggedIn} = useSelector(selectAuth)
+  console.log("🚀 ~ file: Login.js:13 ~ Login ~ isLoggedIn:", isLoggedIn)
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/home')
+    }
+  }, [navigate, isLoggedIn])
 
   const handleLogin = () => {
-    // Handle login logic here (e.g., send data to backend, authenticate user)
-    console.log('Login form values:', { email, password });
-    alert('Login successful!');
-    dispatch(login({ email, password }));
-
-    navigate('/home'); // Navigate to the dashboard page
+    dispatch(loginUser({ email, password }));
   };
 
   return (
@@ -33,7 +36,7 @@ const Login = () => {
           <Input.Password value={password} onChange={(e) => setPassword(e.target.value)} />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" loading={loading} htmlType="submit">
             Login
           </Button>
         </Form.Item>

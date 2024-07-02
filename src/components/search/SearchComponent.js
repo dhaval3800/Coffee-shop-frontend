@@ -2,23 +2,30 @@ import React from 'react'
 import { Input, Sea } from 'antd';
 import './style.css'
 import { SearchOutlined } from '@ant-design/icons';
+import Dropdown from '../Dropdown/Dropdown';
 
 
-const SearchComponent = () => {
+const SearchComponent = ({ value, onChange }) => {
+
+    const handleInputChange = (event) => {
+        onChange(event.target.value); // Pass the new search term to the parent component
+    };
+
     return (
         <div >
             <div style={{ display: 'flex' }}>
-                <div style={{paddingRight:'10px'}}>
+                <div style={{ paddingRight: '10px' }}>
                     <Input
                         placeholder="Search"
-                        prefix={<SearchOutlined style={{ color: '#A4ADAE' }} />}
+                        value={value} // Set the value prop from parent component
+                        onChange={handleInputChange}
+                        prefix={<SearchOutlined style={{ color: '#A4ADAE' }}
+                        />}
                     />
                 </div>
-                <div class='icon-container'>
-                    <i className="fi fi-rr-filter"
-                        style={{ height: '20px', width: '22px', color:'white' }}
-                    ></i>
-                </div>
+
+                <Dropdown />
+
             </div>
         </div>
     )

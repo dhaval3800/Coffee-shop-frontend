@@ -1,0 +1,9 @@
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#003B40;
+    padding: 19px;
+    border-radius: 20px;
+  }

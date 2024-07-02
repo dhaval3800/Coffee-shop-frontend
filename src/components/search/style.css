@@ -9,12 +9,3 @@
     font-size: 16px; /* Set a comfortable font size for inputs */
   }
 
-
-.icon-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color:#003B40;
-  padding: 19px;
-  border-radius: 20px;
-}
