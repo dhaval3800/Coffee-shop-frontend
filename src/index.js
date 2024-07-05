@@ -4,16 +4,19 @@ import { Provider } from 'react-redux';
 import App from './App';
 import { persistor, store } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
+import './index.css'
+import { Elements } from '@stripe/react-stripe-js';
+import { stripePromise } from './utils/stripe';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
-  <React.StrictMode>
     <PersistGate loading={null} persistor={persistor}>
       <Provider store={store}>
-        <App />
+        <Elements stripe={stripePromise}>
+          <App />
+        </Elements>
       </Provider>
     </PersistGate>
-  </React.StrictMode>
 );

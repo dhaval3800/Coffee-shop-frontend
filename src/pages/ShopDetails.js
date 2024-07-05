@@ -1,6 +1,6 @@
 // src/components/ShopDetails.js
 import { CoffeeOutlined, DribbbleCircleFilled, FolderOpenTwoTone, LeftOutlined, StarFilled } from '@ant-design/icons/lib';
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectShopDetails, selectFetching, selectError } from '../redux/features/shopDetails/shopDetailsSlice';
 import { fetchShopDetails } from '../redux/features/shopDetails/shopDetailsThunks';
@@ -9,21 +9,30 @@ import ProductCard from '../components/Product/ProductCard';
 import './shopDetails.css'
 import { Drawer } from 'antd';
 import Slider from "react-slick";
-
+import categoryIcon2 from '../assets/icons/categoryIcon2.svg'
+import categoryIcon3 from '../assets/icons/categoryIcon3.svg'
+import locationIcon from '../assets/icons/location-svgrepo-com.svg'
+import FooterCheckout from '../components/FooterCheckout/FooterCheckout';
+import { selectCartItems } from '../redux/features/cart/cartSlice';
 
 const ShopDetails = () => {
     const { id } = useParams();
-    console.log("🚀 ~ file: ShopDetails.js:11 ~ ShopDetails ~ shopId:", id)
 
     const dispatch = useDispatch();
     const shopDetails = useSelector(selectShopDetails);
-    console.log("🚀 ~ file: ShopDetails.js:16 ~ ShopDetails ~ shopDetails:", shopDetails)
+    const cartItems = useSelector(selectCartItems);
     const fetching = useSelector(selectFetching);
     const error = useSelector(selectError);
 
+    const [selectedCategory, setSelectedCategory] = useState('Coffee');
+
     useEffect(() => {
         dispatch(fetchShopDetails(id));
-    }, [dispatch]);
+    }, [dispatch, id]);
+
+    const filteredProducts = useMemo(() => {
+        return shopDetails?.products?.filter(product => product.category.toLowerCase() === selectedCategory.toLowerCase());
+    }, [shopDetails, selectedCategory]);
 
     if (fetching) {
         return <div>Loading...</div>;
@@ -32,6 +41,11 @@ const ShopDetails = () => {
     if (error.status) {
         return <div>Error: {error.message}</div>;
     }
+
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(category);
+    };
+
     const settings = {
         dots: true,
         infinite: true,
@@ -49,21 +63,26 @@ const ShopDetails = () => {
                     <Slider {...settings}>
                         {shopDetails?.images.map((image, index) => (
                             <div key={index}>
-                                <img src={image} alt={`Slide ${index + 1}`} />
+                                <img style={{ objectFit: 'cover', height: '334px', width: '100%' }} src={image} alt={`Slide ${index + 1}`} />
                             </div>
                         ))}
                     </Slider>
                     <Link to="/home" >
-                        <div style={{ position: 'absolute', top: '44px', left: '26px', height: '36px', width: '36px', backgroundColor: 'white', borderRadius: '7px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <LeftOutlined style={{ fontSize: '12px', color: '#003B40' }} />
+                        <div className='home-page-redirect-wrap'>
+                            <LeftOutlined />
                         </div>
                     </Link>
                 </div>
-                <div height={'55vh'} placement='bottom' >
-                    <div class='shop-details-container' style={{ padding: '0px 28px' }}>
+                <div className='w' placement='bottom' >
+                    <div className='shop-details-container' style={{ padding: '0px 28px' }}>
                         <div style={{ padding: '24px' }}>
                             <div className="shop-details">
-                                <h3>{shopDetails.name}</h3>
+                                <div className='shop-title-wrap'>
+                                    <h3>{shopDetails.name}</h3>
+                                    <Link to={`/maps/${id}?lat=${shopDetails?.address?.coordinates?.latitude}&lng=${shopDetails?.address?.coordinates?.longitude}`}>
+                                        <img src={locationIcon} />
+                                    </Link>
+                                </div>
                                 <div>
                                     <StarFilled /> {shopDetails.ratings.average}
                                     <span> {shopDetails.ratings.numberOfRatings}</span>
@@ -72,35 +91,40 @@ const ShopDetails = () => {
                             <div>3.3 miles</div>
                         </div>
                         <div className='product-icon-container'>
-                            <div class='active'>
+                            <div className={selectedCategory === 'Coffee' ? 'active' : ''} onClick={() => handleCategoryClick('Coffee')}>
                                 <div style={{ padding: '22.5px 18px' }}>
-                                    <CoffeeOutlined className='nav-icon' />
+                                    <div className='category-icon-wrap'>
+                                        <CoffeeOutlined className='nav-icon' />
+                                    </div>
                                     <div>Coffee</div>
                                 </div>
                             </div>
-                            <div>
+                            <div className={selectedCategory === 'Drinks' ? 'active' : ''} onClick={() => handleCategoryClick('Drinks')}>
                                 <div style={{ padding: '22.5px 18px' }}>
-                                    <DribbbleCircleFilled className='nav-icon' />
+                                    <div className='category-icon-wrap'>
+                                        <img src={categoryIcon2} />
+                                    </div>
                                     <div>Drinks</div>
                                 </div>
                             </div>
-                            <div>
+                            <div className={selectedCategory === 'Food' ? 'active' : ''} onClick={() => handleCategoryClick('Food')}>
                                 <div style={{ padding: '22.5px 18px' }}>
-                                    <FolderOpenTwoTone className='nav-icon' />
+                                    <div className='category-icon-wrap'>
+                                        <img src={categoryIcon3} />
+                                    </div>
                                     <div>Food</div>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            {
-                                shopDetails.products.map((product) => (
-                                    <ProductCard key={product._id} product={product} />
-                                ))
-                            }
+                            {filteredProducts.map((product) => (
+                                <ProductCard key={product._id} product={product} />
+                            ))}
                         </div>
                     </div>
                 </div>
             </div>
+            {cartItems.length > 0 && <FooterCheckout itemCount={cartItems.length}/>}
 
         </>
     );

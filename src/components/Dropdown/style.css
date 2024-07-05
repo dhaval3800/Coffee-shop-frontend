@@ -7,3 +7,7 @@
     padding: 19px;
     border-radius: 20px;
   }
+
+.ant-dropdown-trigger {
+  width: 58px;
+}

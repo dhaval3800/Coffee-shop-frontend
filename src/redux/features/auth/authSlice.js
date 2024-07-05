@@ -2,17 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { loginUser, registerUser } from './authThunk';
 
-// Async thunk action to handle user login
-const userToken = localStorage.getItem('token')
-  ? localStorage.getItem('token')
-  : null
-
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
     isLoggedIn: false,
     user: null,
-    userToken,
     error: null,
     loading: false,
   },
@@ -32,7 +26,6 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.loading = false;
         state.user = action.payload;
-        state.userToken = action.payload.token
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.isLoggedIn = false;

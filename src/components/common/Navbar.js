@@ -1,28 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { BookOutlined, HeartOutlined, HomeOutlined, UserOutlined } from '@ant-design/icons';
 import './style.css';
 
-const Navbar = ({ isLoggedIn, onLogout }) => {
-  if (!isLoggedIn) {
-    return null;
-  }
+const Navbar = () => {
+  const location = useLocation();
+
+  const links = [
+    { to: "/home", icon: <HomeOutlined /> },
+    { to: "/wishlist", icon: <HeartOutlined /> },
+    { to: "/cart", icon: <BookOutlined /> },
+    { to: "/profile", icon: <UserOutlined /> },
+  ];
+
+  const getNavLinkClass = (path) => `nav-icon ${location.pathname === path ? 'active' : ''}`;
 
   return (
     <nav>
       <div className='nav-icon-container'>
-        <Link to="/home" className='nav-icon active'>
-          <HomeOutlined />
-        </Link>
-        <Link to="/wishlist" className='nav-icon'>
-          <HeartOutlined />
-        </Link>
-        <Link to="/books" className='nav-icon'>
-          <BookOutlined />
-        </Link>
-        <Link to="/profile" className='nav-icon'>
-          <UserOutlined />
-        </Link>
+        {links.map((link) => (
+          <Link key={link.to} to={link.to} className={getNavLinkClass(link.to)}>
+            {link.icon}
+          </Link>
+        ))}
       </div>
     </nav>
   );

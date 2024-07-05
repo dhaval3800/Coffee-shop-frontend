@@ -29,8 +29,10 @@ const api = (method, url, variables) => {
       },
       error => {
         if (error.response) {
+          console.log("🚀 ~ file: api.js:32 ~ returnnewPromise ~ error:", error)
           if (error.response.status === 401) {
-            localStorage.removeItem('authorization');
+            console.log("🚀 ~ file: api.js:34 ~ returnnewPromise ~ rror.response.status:", error.response.status)
+            localStorage.removeItem('token');
             history.push('/login');
           }
           reject(error.response.data?.message || defaults.error.message);

@@ -1,0 +1,14 @@
+.leaflet-control-zoom{
+    position: absolute !important;
+    left: 0;
+}
+
+.navigate-shop-link{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;    
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+}

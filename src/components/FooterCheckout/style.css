@@ -1,0 +1,37 @@
+.footer-container{
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background-color: #EDF0EF;
+    
+    padding: 18px;
+}
+
+.button-wrapper{
+    display: flex;
+    background-color: #003B40;
+    padding: 18px;
+    border-radius: 12px;
+    justify-content: space-between;
+}
+
+.checkout-items{
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+.cart-redirect-button a{
+    background-color: #003B40;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.cart-redirect-button a span{
+    margin-left: 6px;
+}

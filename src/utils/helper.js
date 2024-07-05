@@ -16,16 +16,17 @@ const deg2rad = (deg) => {
 };
 
 
-export const getUserLocation = (setUserLocation) => {
+export const getUserLocation = (resolve, reject) => {
     navigator.geolocation.getCurrentPosition(
-        (position) => {
-            setUserLocation({
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude,
-            });
-        },
-        (error) => {
-            console.error('Error getting user location:', error);
-        }
+      (position) => {
+        resolve({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        });
+      },
+      (error) => {
+        console.error('Error getting user location:', error);
+        reject(error);
+      }
     );
-};
+  };

@@ -7,11 +7,11 @@ const UserAvatar = ({ user }) => {
 
   return (
     <Avatar
-      size={40}
+      size={50}
       icon={<UserOutlined />}
       src={avatar}
       alt={name}
-      style={{ marginRight: '8px' }}
+      // style={{ width:'50px',height:'50px'}}
     />
   );
 };

@@ -1,10 +1,11 @@
 .anticon {
-    color: grey;
+    color: #B7C1C2;
     font-size: 24px;
 }
 .nav-icon-container{
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 nav {
@@ -12,11 +13,16 @@ nav {
     bottom: 0;
     width: 100%;
     background-color: white;
-    padding: 12px 0px 43.5px
+    padding: 12px 0px 44px;
+    z-index: 999;
+    
 }
 
 .nav-icon.active{
     background-color: #003B40;
     padding: 18px 22px;
     border-radius: 27px;
+    width: 70px;
+    height: 58px;
+    display: flex;
 }

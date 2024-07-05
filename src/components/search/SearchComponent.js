@@ -5,26 +5,27 @@ import { SearchOutlined } from '@ant-design/icons';
 import Dropdown from '../Dropdown/Dropdown';
 
 
-const SearchComponent = ({ value, onChange }) => {
+const SearchComponent = ({ value, onChange, onFilterChange }) => {
 
     const handleInputChange = (event) => {
-        onChange(event.target.value); // Pass the new search term to the parent component
+        onChange(event.target.value); 
     };
 
     return (
         <div >
-            <div style={{ display: 'flex' }}>
-                <div style={{ paddingRight: '10px' }}>
+            <div className='shop-serach-container'>
+                <div>
                     <Input
+                        classNames='input-search'
                         placeholder="Search"
-                        value={value} // Set the value prop from parent component
+                        value={value} 
                         onChange={handleInputChange}
                         prefix={<SearchOutlined style={{ color: '#A4ADAE' }}
                         />}
                     />
                 </div>
 
-                <Dropdown />
+                <Dropdown onFilterChange={onFilterChange} />
 
             </div>
         </div>

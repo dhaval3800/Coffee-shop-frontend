@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, Typography } from 'antd';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Link, useNavigate } from 'react-router-dom';
 import './style.css';
 
 const Signup = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   const handleSubmit = () => {
-    // Handle form submission here (e.g., send data to backend)
-    console.log('Signup form values:', { name, email, password });
-    alert('Signup successful!');
-    navigate('/login'); // Navigate to the login page
+    navigate('/login'); 
   };
 
   return (

@@ -1,25 +1,33 @@
 import React from 'react';
 import './style.css'
 import { PlusOutlined } from '@ant-design/icons';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/features/cart/cartSlice';
 
 const ProductCard = (props) => {
-console.log("🚀 ~ file: ProductCard.js:6 ~ ProductCard ~ props:", props)
-    const {image, category, name, price} = props.product;
+    const { image, category, name, price, description } = props.product;
+    const product = props.product
+    const dispatch = useDispatch();
+
+    const handleAddToCart = () => {
+        dispatch(addToCart({ product }));
+    };
+
     return (
-        <div class="product-card">
-            <div class='product-content'>
+        <div className="product-card">
+            <div className='product-content'>
                 <div style={{ paddingRight: '28px' }}>
-                    <img class='product-img' src={image} height={'190px'} alt={'name'} />
+                    <img className='product-img' src={image} height={'190px'} alt={'name'} />
                 </div>
-                <div class="product-details">
-                    <div style={{ fontWeight: '700', fontSize: '16px', paddingBottom: '8px' }}>{name}</div>
+                <div className="product-details">
+                    <div style={{ fontWeight: '700', fontSize: '16px', paddingBottom: '8px' }}>{name} </div>
                     <div style={{ fontWeight: '400', fontSize: '14px', paddingBottom: '14px', color: '#003B40' }}>
-                        {'A chocolate-flavored warm beverage that is a variant of a café latte'}
+                        {description}
                     </div>
                     <div style={{ fontWeight: '600', fontSize: '14px', color: '#003B40' }}>{price}</div>
                 </div>
             </div>
-            <div class='product-add-btn'>
+            <div className='product-add-btn' onClick={handleAddToCart}>
                 <PlusOutlined style={{ color: 'white' }} />
             </div>
         </div>

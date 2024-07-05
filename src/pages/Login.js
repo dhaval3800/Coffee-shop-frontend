@@ -5,17 +5,18 @@ import './login.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../redux/features/auth/authThunk';
 import { selectAuth,  } from '../redux/features/auth/authSlice';
+import { getStoredAuthToken } from '../utils/authToken';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const {loading, isLoggedIn} = useSelector(selectAuth)
-  console.log("🚀 ~ file: Login.js:13 ~ Login ~ isLoggedIn:", isLoggedIn)
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const token = getStoredAuthToken()
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (isLoggedIn && token) {
       navigate('/home')
     }
   }, [navigate, isLoggedIn])

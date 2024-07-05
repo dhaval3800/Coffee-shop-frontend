@@ -3,9 +3,14 @@
 .ant-input-outlined {
     border: none;
     background-color: #EDF0EF;
-    border-radius: 20 px;
+    border-radius: 20px;
     min-height: 56px; /* Adjust input height for better appearance */
     padding: 16px 13px 16px 13px;
     font-size: 16px; /* Set a comfortable font size for inputs */
   }
 
+.shop-serach-container{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 21px;
+}
