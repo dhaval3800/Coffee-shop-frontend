@@ -13,4 +13,9 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 21px;
+  gap: 15px;
+}
+
+.input-search-wrapper{
+  width: 100%;
 }

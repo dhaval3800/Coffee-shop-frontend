@@ -2,7 +2,7 @@ import React from 'react'
 import { Input, Sea } from 'antd';
 import './style.css'
 import { SearchOutlined } from '@ant-design/icons';
-import Dropdown from '../Dropdown/Dropdown';
+import Dropdown from '../dropdown/Dropdown';
 
 
 const SearchComponent = ({ value, onChange, onFilterChange }) => {
@@ -14,7 +14,7 @@ const SearchComponent = ({ value, onChange, onFilterChange }) => {
     return (
         <div >
             <div className='shop-serach-container'>
-                <div>
+                <div className='input-search-wrapper'>
                     <Input
                         classNames='input-search'
                         placeholder="Search"

@@ -1,25 +1,28 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BookOutlined, HeartOutlined, HomeOutlined, UserOutlined } from '@ant-design/icons';
-import './style.css';
+import './navbar.css';
+import HomeIcon from '../icons/HomeIcon';
+import WishListIcon from '../icons/WishListIcon';
+import CartIcon from '../icons/CartIcon';
+import UserNavIcon from '../icons/UserNavIcon';
 
 const Navbar = () => {
   const location = useLocation();
+  const getNavLinkClass = (path) => location.pathname === path ? 'active' : '';
 
   const links = [
-    { to: "/home", icon: <HomeOutlined /> },
-    { to: "/wishlist", icon: <HeartOutlined /> },
-    { to: "/cart", icon: <BookOutlined /> },
-    { to: "/profile", icon: <UserOutlined /> },
+    { to: "/home", icon: <HomeIcon  active={getNavLinkClass('/home')}/> },
+    { to: "/wishlist", icon: <WishListIcon  active={getNavLinkClass('/wishlist')} /> },
+    { to: "/cart", icon: <CartIcon   active={getNavLinkClass('/cart')}/> },
+    { to: "/profile", icon: <UserNavIcon  active={getNavLinkClass('/profile')}/> },
   ];
 
-  const getNavLinkClass = (path) => `nav-icon ${location.pathname === path ? 'active' : ''}`;
 
   return (
     <nav>
       <div className='nav-icon-container'>
         {links.map((link) => (
-          <Link key={link.to} to={link.to} className={getNavLinkClass(link.to)}>
+          <Link key={link.to} to={link.to} className={`nav-icon ${getNavLinkClass(link.to)}`}>
             {link.icon}
           </Link>
         ))}

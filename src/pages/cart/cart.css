@@ -1,0 +1,29 @@
+.cart-image-wrap img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-right: 26px;
+}
+
+.cart-container {
+    padding: 24px;
+}
+
+.cart-list{
+    display: flex;
+    gap: 26px;
+    margin-bottom: 20px;
+}
+
+.cart-item-desc{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.cart-button-wrap{
+    display: flex;
+    gap: 10px;
+}

@@ -29,13 +29,11 @@ const api = (method, url, variables) => {
       },
       error => {
         if (error.response) {
-          console.log("🚀 ~ file: api.js:32 ~ returnnewPromise ~ error:", error)
           if (error.response.status === 401) {
-            console.log("🚀 ~ file: api.js:34 ~ returnnewPromise ~ rror.response.status:", error.response.status)
             localStorage.removeItem('token');
             history.push('/login');
           }
-          reject(error.response.data?.message || defaults.error.message);
+          reject(error.response.data?.message   ||  error.response?.data?.error ||defaults.error.message);
         } else {
           reject(defaults.error.message);
         }

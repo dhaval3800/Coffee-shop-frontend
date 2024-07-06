@@ -1,0 +1,74 @@
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px; 
+  background-color: #003B40;
+}
+
+.signup-form {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 340px;
+  padding: 40px; 
+}
+
+.signup-container h2{
+  color: white;
+}
+
+.signup-form .ant-form-item {
+  margin-bottom: 20px;
+}
+
+.signup-form .ant-form-item-label > label {
+  font-weight: 500;
+  font-size: 16px !important;
+}
+
+.signup-form .ant-input {
+  border-color: #4facfe;
+  font-size: 16px; 
+}
+
+.signup-form .ant-input:focus {
+  box-shadow: 0 0 0 2px rgba(79, 172, 254, 0.2);
+}
+
+.signup-form .ant-btn-primary {
+  background-color: #4facfe;
+  border-color: #4facfe;
+  border-radius: 4px;
+  font-weight: bold;
+  width: 100%;
+  height: 40px; 
+  margin-top: 20px; 
+  cursor: pointer; 
+  transition: background-color 0.2s ease-in-out; 
+}
+
+.signup-form .ant-btn-primary:hover,
+.signup-form .ant-btn-primary:focus {
+  background-color: #00f2fe;
+  border-color: #00f2fe;
+}
+
+
+.signup-form .ant-form-item-control .ant-form-item-explain {
+  text-align: center; 
+  margin-top: 10px; 
+}
+
+.signup-form .ant-form-item-control .ant-form-item-explain a {
+  color: #4facfe; 
+  font-weight: bold; 
+  text-decoration: none; 
+  transition: color 0.2s ease-in-out;
+}
+
+.signup-form .ant-form-item-control .ant-form-item-explain a:hover {
+  color: #00f2fe;
+}

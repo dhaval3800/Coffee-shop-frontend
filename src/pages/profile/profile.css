@@ -1,0 +1,40 @@
+.user-profile-container {
+  padding: 24px;
+  background: var(--secondary-color);
+}
+
+.profile-content {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-buttons-wrap button {
+  background-color: #003b40;
+  color: white;
+  font-size: 16px;
+  padding: 16px;
+}
+
+.profile-buttons-wrap button:nth-child(2) {
+  background-color: white;
+  color: #003b40;
+  font-size: 16px;
+  padding: 16px;
+}
+
+
+.avatar-container {
+  margin-bottom: 30px;
+}
+
+.avatar-container span {
+  background-color: #003b40;
+  color: white;
+  font-weight: 600;
+  font-size: 32px;
+  border: 2px solid #003b40;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
