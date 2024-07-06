@@ -1,4 +1,3 @@
-// App.js
 import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Navbar from './components/common/Navbar';
